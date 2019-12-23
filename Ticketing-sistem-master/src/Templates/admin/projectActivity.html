@@ -1,0 +1,43 @@
+<div class="nav-tabs-custom">
+    <ul class="nav nav-tabs">
+
+        <li class="active">
+            <a href="/admin/assignmentHistory/#history" data-toggle="tab">User activity on project</a>
+        </li>
+
+    </ul>
+    <div class="tab-content">
+
+        <div class="active tab-pane" id="history">
+            <!-- The timeline -->
+            <ul class="timeline timeline-inverse">
+                <!-- timeline time label -->
+                <li class="time-label" ng-repeat="user in assignmetsByUser">
+                    <span class="bg-red">
+                        {{user.userID + ' done this assignments'}}
+                    </span>
+                    <div ></div>
+                    <div class="timeline-item" ng-if="assignment.status === 'Done'" ng-repeat="assignment in user.assignment">
+                        <span class="time">
+                            <i class="fa fa-clock-o"></i>
+                            {{assignment.createdAt |  date:"dd/MM/yyyy 'at' h:mma"}}</span>
+                        <h3 class="timeline-header">
+                            <a href="#">{{assignment.title}}</a>
+                        </h3>
+
+                    </div>
+                </li>
+
+                <!-- END timeline item -->
+
+                <!-- END timeline item -->
+                <li>
+                    <i class="fa fa-clock-o bg-gray"></i>
+                </li>
+            </ul>
+        </div>
+
+
+    </div>
+    <!-- /.tab-content -->
+</div>

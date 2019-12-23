@@ -1,0 +1,29 @@
+
+<h1>Tasks</h1>
+<div ng-repeat = "task in tasks">
+    <div class="row">
+        <div class="col-md-4">
+            <!-- Info Boxes Style 2 -->
+            <a href="/#/dashboard">
+                <div class="info-box bg-blue">
+                    <span class="info-box-icon">
+                        <i class="ion ion-ios-pricetag-outline"></i>
+                    </span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Title: {{task.title}}</span>
+                          <span class="info-box-text"><hr></span>
+                            <span class="info-box-text">Label: {{task.lable}}</span>
+                              <span class="info-box-text">Priority: {{task.priority}}</span>
+                              <span class="info-box-text">Status: {{task.status}}</span>
+                                <span class="progress-description">Description: {{task.description}}</span>
+
+
+                    </div>
+                    <!-- /.info-box-content -->
+                </div >
+            </a>
+
+
+
+        </div>
+    </div>

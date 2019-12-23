@@ -1,0 +1,106 @@
+<section class="content">
+    <div class="row">
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">Comments on task: {{assignmentWithComments.title}}</h3>
+                <div class="box-tools pull-right">
+                    <button class="btn btn-box-tool" data-widget="collapse">
+                        <i class="fa fa-minus"></i>
+                    </button>
+                    <button class="btn btn-box-tool" data-widget="remove">
+                        <i class="fa fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <div class="table-responsive">
+                    <table class="table no-margin">
+                        <thead>
+                            <tr>
+                                <th>Author</th>
+                                <th>Created</th>
+                                <th>Updated</th>
+                                <th>Comment</th>
+                                <th>Update</th>
+                                <th>Remove</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="comment in assignmentWithComments.comments | orderBy:'-createdAt'">
+                                <td>
+                                    {{comment.author}}
+                                </td>
+                                <td>{{comment.createdAt | date:'medium'}}</td>
+                                <td>
+                                    {{comment.updatedAt | date:'medium'}}
+                                </td>
+                                <td>
+                                    {{comment.comment}}
+                                </td>
+
+                                <td ng-controller="updateCommentController">
+                                    <button class="btn btn-sm btn-flat btn-primary" ng-click="updateCommentFunction()">Update</button>
+                                    <div ng-hide="updateCommentHide">
+                                          <div class="col-md-10">
+                                              <form role="form">
+                                                  <div class="box-body">
+                                                      <div class="form-group">
+                                                          <label for="exampleInputPassword1">Comment:</label>
+                                                          <textarea class="form-control" rows="5" ng-model="comment.comment" placeholder="Enter comment"></textarea>
+                                                      </div>
+                                                  </div>
+                                                  <!-- /.box-body -->
+                                                  <div class="box-footer">
+                                                      <button type="submit" ng-click="saveUpdatedComment(comment)" class="btn btn-sm btn-primary btn-flat">Submit</button>
+                                                  </div>
+                                              </form>
+                                          </div>
+                                    </div>
+                                  </td>
+
+                                  <td ng-controller="deleteCommentController">
+                                    <button class="btn btn-sm btn-flat btn-danger" ng-click="deleteComment(comment)">Remove</button>
+                                  </td>
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.table-responsive -->
+                </div>
+                <!-- /.box-body -->
+
+                <!-- /.box-footer -->
+            </div>
+        </div>
+
+
+        <div class="active tab-pane" id="info" ng-controller="newCommentController">
+          <div class="row">
+          <div class="col-md-4">
+              <button ng-click="newCommentHide()" class="btn btn-sm btn-flat btn-primary">Add new comment</button>
+          </div>
+        </div>
+                <div ng-hide="commentHide">
+                  <div class="row">
+                    <div class="col-md-4">
+                        <form role="form">
+                            <div class="box-body">
+
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Comment:</label>
+                                    <textarea class="form-control" rows="5" ng-model="newComment.comment" placeholder="Enter comment"></textarea>
+                                </div>
+
+                            </div>
+                            <!-- /.box-body -->
+                            <div class="box-footer">
+                                <button type="submit" ng-click="saveComment(assignmentWithComments._id)" class="btn btn-sm btn-flat btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+              </div>
+        </div>
+    </section>

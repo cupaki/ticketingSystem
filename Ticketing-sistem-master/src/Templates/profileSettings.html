@@ -1,0 +1,64 @@
+<div class="form-group">
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label for="inputName" class="col-sm-2 control-label">User name</label>
+            <div class="col-sm-10">
+                <input readonly type="email" class="form-control" id="inputName" placeholder={{user.username}}>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputEmail" class="col-sm-2 control-label">Email</label>
+            <div class="col-sm-10">
+                <input type="email" class="form-control" ng-model="user.email" id="inputEmail" placeholder="Typing email">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputName" class="col-sm-2 control-label">First Name</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" ng-model="user.firstname" id="inputName" placeholder="Typing first name">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputName" class="col-sm-2 control-label">Last Name </label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" ng-model="user.lastname" id="inputName" placeholder="Typing last name"}}>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputExperience" class="col-sm-2 control-label">Experience</label>
+            <div class="col-sm-10">
+                <textarea class="form-control" ng-model="user.experience" id="inputExperience" placeholder="Typing experience"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputExperience" class="col-sm-2 control-label">Education</label>
+            <div class="col-sm-10">
+                <textarea class="form-control" ng-model="user.education" id="inputExperience" placeholder="Typing education"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputExperience" class="col-sm-2 control-label">Location</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" ng-model="user.location" id="inputExperience" placeholder="Typing location"></input>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputExperience" class="col-sm-2 control-label">Job tilte</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" ng-model="user.jobTitle" id="inputExperience" placeholder="Typing job title"></input>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputSkills" class="col-sm-2 control-label">Skills</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" ng-model="user.skills" id="inputSkills" placeholder="Typing skills">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-danger" ng-click="updateUser()">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>

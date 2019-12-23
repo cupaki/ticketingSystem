@@ -1,0 +1,41 @@
+<section class="content">
+    <div class="row">
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">Tasks</h3>
+
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <div class="table-responsive">
+                    <table class="table no-margin">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Label</th>
+                                <th>Status</th>
+                                <th>Priority</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr ng-repeat="task in assignments">
+                                <td>
+                                    <a ng-click="AssignmentDetails(task)">{{task.title}}</a>
+                                </td>
+                                <td>{{task.label}}</td>
+                                <td>{{task.status}}</td>
+                                <td>{{task.priority}}</td>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.table-responsive -->
+
+
+
+                </div>
+                <!-- /.box-body -->
+
+            </div>
+        </div>
+    </section>

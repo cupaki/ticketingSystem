@@ -1,0 +1,233 @@
+<div class="nav-tabs-custom">
+    <ul class="nav nav-tabs">
+        <li class="active">
+            <a href="/dashboard/projects/#info" data-toggle="tab">Info</a>
+
+        </li>
+        <li >
+            <a href="/dashboard/projects/#timeline" data-toggle="tab">Timeline</a>
+
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div class="active tab-pane" id="info" >
+            <div class="row">
+                <div class="col-md-6">
+                    <h3 class="profile-username text-center">{{assignment.title}}</h3>
+
+                    <ul class="list-group list-group-unbordered">
+                        <li class="list-group-item">
+                            <b>Label</b>
+                            <a class="pull-right">{{assignment.label}}</a>
+                        </li>
+                        <li class="list-group-item">
+                            <b>Priority</b>
+                            <a class="pull-right">{{assignment.priority}}</a>
+                        </li>
+                        <li class="list-group-item">
+                            <b>Status</b>
+                            <a class="pull-right">{{assignment.status}}</a>
+                        </li>
+                        <li class="list-group-item">
+                            <b>Created</b>
+                            <a class="pull-right">{{assignment.createdAt | date:'medium'}}</a>
+                        </li>
+                        <li class="list-group-item">
+                            <b>Updated</b>
+                            <a class="pull-right">{{assignment.updatedAt | date:'medium'}}</a>
+                        </li>
+
+                        <li class="list-group-item">
+                            <b>Created by</b>
+                            <a class="pull-right">{{assignment.userCreated}}</a>
+                        </li>
+
+                        <li class="list-group-item">
+                          <b>Granted to:</b>
+                        </li>
+
+                        <li class="list-group-item" ng-repeat="user in assignment.users">
+                          <b>-</b>  <a class="pull-right">{{user.username}}</a>
+                        </li>
+
+                    </ul>
+
+                    <div class="active tab-pane" id="info" ng-controller="newCommentController">
+
+                      <div class="col-md-10">
+                          <button ng-click="updateHideFunction()" class="btn btn-sm btn-primary btn-flat">Update assignment</button>
+                      </div>
+
+                      <div ng-hide="updateHide">
+                          <div class="col-md-6">
+                              <form role="form">
+                                  <div class="box-body">
+
+                                    <div class="row">
+                                        <div ng-hide="updateHide">
+                                            <div class="col-md-12">
+                                                <form role="form">
+                                                    <div class="box-body">
+                                                        <div class="form-group">
+                                                             <label for="exampleInputFile">Priority</label>
+                                                             <select ng-model="assignment.priority" class="form-control">
+                                                                     <option>Blocker</option>
+                                                                     <option>Critical</option>
+                                                                     <option>Major</option>
+                                                                     <option>Minor</option>
+                                                                     <option>Trivial</option>
+                                                                   </select>
+                                                         </div>
+                                                        <div class="form-group">
+                                                             <label for="exampleInputFile">Status</label>
+                                                             <select ng-model="assignment.status" class="form-control">
+                                                                     <option>To Do</option>
+                                                                     <option>In Progress</option>
+                                                                     <option>Verify</option>
+                                                                     <option>Done</option>
+                                                                   </select>
+                                                         </div>
+                                                        <div class="form-group">
+                                                            <label for="exampleInputPassword1">Description</label>
+                                                            <textarea class="form-control" rows="3" ng-model="assignment.description" placeholder="Enter description"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.box-body -->
+                                                    <div class="box-footer">
+                                                        <button type="submit" ng-click="saveChanges()" class="btn btn-sm btn-primary btn-flat">Submit</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                  </div>
+                                  <!-- /.box-body -->
+                                  <div class="box-footer">
+                                      <button type="submit" ng-click="saveChanges(assignment._id)" class="btn btn-sm btn-primary btn-flat">Save changes</button>
+                                  </div>
+                              </form>
+                          </div>
+                      </div>
+
+                      <div class="col-md-10">
+                          <button ng-click="newCommentHide()" class="btn btn-sm btn-primary btn-flat">Add new comment</button>
+                      </div>
+
+                            <div ng-hide="commentHide">
+                                <div class="col-md-6">
+                                    <form role="form">
+                                        <div class="box-body">
+
+                                            <div class="form-group">
+                                                <label for="exampleInputPassword1">Comment:</label>
+                                                <textarea class="form-control" rows="5" ng-model="newComment.comment" placeholder="Enter comment"></textarea>
+                                            </div>
+
+                                        </div>
+                                        <!-- /.box-body -->
+                                        <div class="box-footer">
+                                            <button type="submit" ng-click="saveComment(assignment._id)" class="btn btn-sm btn-primary btn-flat">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="col-md-6">
+                    <div class="box box-solid">
+                        <div class="box-header with-border">
+                            <i class="fa fa-text-width"></i>
+                            <h3 class="box-title">Description and Comments</h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <dl class="dl-vertical">
+                                <dt>Task's description:</dt>
+                                <dd>{{assignment.description}}</dd>
+
+                            </dl>
+                            <dl class="dl-vertical">
+                                <dt>Last 2 comments:</dt>
+                                <dd ng-repeat="comment in assignment.comments | orderBy:'-createdAt' | limitTo:quantity">
+                                      <div class="info-box bg-aqua">
+                                         <span class="info-box-icon">
+                                             <i class="ion-ios-chatbubble-outline"></i>
+                                         </span>
+                                         <div class="info-box-content">
+                                             <span class="info-box-text">Author: {{comment.author}}</span>
+                                             <span class="info-box-text">Created: {{comment.createdAt | date:'medium'}}</span>
+                                             <span class="info-box-text">Updated: {{comment.updatedAt | date:'medium'}}</span>
+                                             <span class="info-box-text">-----------------------------------</span>
+                                              <div class="info-box bg-aqua">
+                                                  <span>COMMENT:
+                                                  {{comment.comment}}
+                                                  </span>
+                                                </div>
+                                         </div>
+                                         <!-- /.info-box-content -->
+                                     </div>
+                                </dd>
+                            </dl>
+
+                            <div class="col-md-10" ng-controller="newCommentController">
+                                <button ng-click="viewAllComments(assignment._id)" class="btn btn-sm btn-primary btn-flat">View all comments</button>
+                            </div>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+                </div>
+            </div>
+
+        </div>
+
+        <div class="tab-pane" id="timeline">
+            <!-- The timeline -->
+            <ul class="timeline timeline-inverse">
+                <!-- timeline time label -->
+                <li class="time-label">
+                    <span class="bg-red">
+                        10 Feb. 2014
+                    </span>
+                </li>
+                <!-- /.timeline-label -->
+                <!-- timeline item -->
+                <li ng-repeat="assignmentVer in assignmentHistory.assignment.slice().reverse()">
+                    <i class="fa fa-user bg-aqua"></i>
+                    <div class="timeline-item">
+                        <span class="time">
+                            <i class="fa fa-clock-o"></i>
+                            {{assignmentVer.updatedAt |  date:"dd/MM/yyyy 'at' h:mma"}}</span>
+                        <h3 class="timeline-header">
+                            <a href="#">Verzija {{assignmentVer.version}}</a>
+                            </h3>
+                        <div class="timeline-body">
+                            <p>Status projekta: {{assignmentVer.status }}</p>
+                            <p>Prioritet projekta: {{assignmentVer.priority }}</p>
+                            <p>Opis projekta: {{assignmentVer.description }}</p>
+                        </div>
+
+                    </div>
+                </li>
+                <!-- END timeline item -->
+
+                <!-- END timeline item -->
+                <li>
+                    <i class="fa fa-clock-o bg-gray"></i>
+                </li>
+            </ul>
+        </div>
+
+
+
+    </div>
+    <!-- /.tab-content -->
+</div>

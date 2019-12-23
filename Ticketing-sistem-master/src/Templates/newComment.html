@@ -1,0 +1,25 @@
+
+<div class="box box-primary">
+    <div class="box-header with-border">
+        <h3 class="box-title">New Comment</h3>
+    </div>
+    <!-- /.box-header -->
+    <!-- form start -->
+    <form role="form">
+        <div class="box-body">
+
+            <div class="form-group">
+                <label for="exampleInputPassword1">Comment</label>
+                <textarea class="form-control" rows="5"
+                ng-model="newProject.description" placeholder="Enter comment"></textarea>
+            </div>
+
+
+        </div>
+        <!-- /.box-body -->
+
+        <div class="box-footer">
+            <button type="submit" ng-click="save()" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,105 @@
+<section class="content">
+    <div class="row">
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">{{team.name}}</h3>
+                <div class="box-tools pull-right">
+                    <button class="btn btn-box-tool" data-widget="collapse">
+                        <i class="fa fa-minus"></i>
+                    </button>
+                    <button class="btn btn-box-tool" data-widget="remove">
+                        <i class="fa fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body" ng-controller="displayTeamController">
+                <div class="table-responsive">
+                    <h3 class="box-title">Members</h3>
+                    <table class="table no-margin">
+                        <thead>
+                            <tr>
+                                <th>Username</th>
+                                <th>First name</th>
+                                <th>Last name</th>
+                                <th>Email</th>
+                                <th>Working on projects</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="user in team.users">
+                                <td>
+                                    {{user.username}}
+                                </td>
+                                <td>
+                                    {{user.firstname}}
+                                </td>
+                                <td>
+                                    {{user.lastname}}
+                                </td>
+                                <td>
+                                    {{user.email}}
+                                </td>
+                                <td>
+                                    <span class="label label-success">{{user.projects.length}}</span>
+                                </td>
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.table-responsive -->
+                </div>
+                <!-- /.box-body -->
+                <!-- /.box-footer -->
+
+                <div ng-controller="projectsController">
+
+                <div class="box-body">
+                    <div class="table-responsive">
+                        <h3 class="box-title">Projects</h3>
+                        <table class="table no-margin">
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Label</th>
+                                    <th>Start</th>
+                                    <th>End</th>
+                                    <th>Client</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="project in team.projects">
+                                    <td>
+                                        <a ng-click="projectDetails(project, user)">{{project.title}}</a>
+                                    </td>
+                                    <td>
+                                        {{project.lable}}
+                                    </td>
+                                    <td>
+                                        {{project.startDate | date:'medium'}}
+                                    </td>
+                                    <td>
+                                        {{project.endDate | date:'medium'}}
+                                    </td>
+                                    <td>
+                                        {{project.cliend}}
+                                    </td>
+                                    <td>
+                                        {{project.description}}
+                                    </td>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                        <!-- /.table-responsive -->
+                    </div>
+
+                  </div>
+
+            </div>
+        </div>
+    </section>

@@ -1,0 +1,54 @@
+<section class="content">
+    <div class="row">
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">projects</h3>
+                <div class="box-tools pull-right">
+                    <button class="btn btn-box-tool" data-widget="collapse">
+                        <i class="fa fa-minus"></i>
+                    </button>
+                    <button class="btn btn-box-tool" data-widget="remove">
+                        <i class="fa fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <div class="table-responsive">
+                    <table class="table no-margin">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Status</th>
+                                <th>Done</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="proj in projects">
+                                <td>
+                                    <a ng-click="projectDetails(proj, user)">{{proj.title}}</a>
+                                </td>
+                                <td>{{proj.description}}</td>
+                                <td>
+                                    {{proj.status}}
+                                </td>
+                                <td>
+                                    <div class="progress sm">
+                                        <div class="progress-bar progress-bar-aqua" style="width: 80%"></div>
+                                    </div>
+                                </td>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.table-responsive -->
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer clearfix">
+                    <a href="#/admin/newProject" class="btn btn-sm btn-info btn-flat pull-left">Add new project</a>
+
+                </div>
+                <!-- /.box-footer -->
+            </div>
+        </div>
+    </section>

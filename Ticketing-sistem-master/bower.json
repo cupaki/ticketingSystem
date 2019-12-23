@@ -1,0 +1,47 @@
+{
+  "name": "ticketing-system",
+  "authors": [
+    "Stefan Halapa <halapastefan@outlook.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-ui-router": "^0.2.18",
+    "angular": "^1.5.5",
+    "restangular": "^1.5.2",
+    "bootstrap": "^3.3.6",
+    "angular-route": "^1.5.5",
+    "angular-resource": "^1.5.5",
+    "angular-validation-match": "^1.9.0",
+    "select2": "^4.0.2",
+    "jquery-ui": "^1.11.4",
+    "hashmap": "^2.0.5",
+    "underscore": "^1.8.3",
+    "angular-chart.js": "^0.10.2"
+  },
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "dist/js/bootstrap.js",
+        "dist/css/bootstrap.min.css",
+        "less/bootstrap.less"
+      ]
+    },
+    "select2": {
+      "main": [
+        "dist/js/select2.js",
+        "dist/css/select2.min.css"
+      ]
+    }
+  }
+}

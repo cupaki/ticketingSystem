@@ -1,0 +1,42 @@
+{
+  "name": "ticketing-system",
+  "version": "1.0.0",
+  "description": "Ticketing system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/halapastefan/Ticketing-sistem.git"
+  },
+  "author": "Svetislav Marjanovic, Srdjan Dobrijevic, Stefan Halapa, Aleksandar Markovic, Nemanja Janicijevic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/halapastefan/Ticketing-sistem/issues"
+  },
+  "homepage": "https://gitlab.com/halapastefan/Ticketing-sistem#README",
+  "dependencies": {
+    "angular-validation-match": "^1.9.0",
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.15.0",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.1",
+    "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "mongoose": "^4.4.13",
+    "morgan": "^1.7.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-inject": "^4.0.0",
+    "gulp-jscs": "^3.0.2",
+    "gulp-jshint": "^2.0.0",
+    "gulp-nodemon": "^2.0.6",
+    "jshint": "^2.9.2",
+    "jshint-stylish": "^2.1.0",
+    "wiredep": "^4.0.0"
+  }
+}
